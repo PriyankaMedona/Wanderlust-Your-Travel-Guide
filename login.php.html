@@ -1,0 +1,61 @@
+
+<?php include('server.php') ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome-Wanderlust</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="login.css" />
+<script>
+        function redirectToSignup() {
+            // Redirect to the signup page
+            window.location.href = "signup.html";
+        }
+    </script>
+  </head>
+  <body>
+    <div class="login_form_container">
+   <form action="enter.php" method="post">
+      <div class="login_form">
+        <h2>Login</h2>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            placeholder="Username"
+            class="input_text"
+            autocomplete="off"
+            required
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="password"
+            placeholder="Password"
+            class="input_text"
+            autocomplete="off"
+            required
+          />
+        </div>
+        <div class="button_group" id="login_button">
+         <button class="button" style="color: #00ccff;"> <a>Submit</a></button>
+        </div>
+        <div class="fotter">
+          <a>Forgot Password ?</a>
+          <a><span style="color:#00ccff; text-decoration: none; cursor: pointer;" onclick="redirectToSignup()">SignUp</a>
+        </div>
+      </div>
+    </div>
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>

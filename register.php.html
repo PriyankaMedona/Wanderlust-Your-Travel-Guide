@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register-Wanderlust</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+
+    <div class="login_form_container">
+  <form action="register.php" method="post"  onsubmit="return validateForm()">
+      <div class="login_form">
+        <h2>SignUp</h2>
+         <div class="input_group">
+          <i class="fa fa-envelope"></i>
+          <input
+            type="text"
+            name="email";
+            placeholder="Email"
+            class="input_text"
+            autocomplete="off"
+            required=""
+          />
+ <span id="emailError" style="color: red;"></span><br><br>
+        </div>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            name="user_name";
+            placeholder="Username"
+            class="input_text"
+            autocomplete="off"
+            required=""
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="password"
+            name="password";
+            placeholder="Password"
+            class="input_text"
+            autocomplete="off"
+            required =""
+          />
+        </div>
+        <div class="button_group" id="login_button">
+         <button class="button" style="color: #00ccff;"><a>Register</a></button>
+        </div>
+        <div class="fotter">
+        </div>
+      </div>
+    </div>
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="login.js"></script>
+<script>
+function validateForm() {
+            // Get the input value
+            var email = document.getElementById("email").value;
+            
+            // Check if the email format is valid using a regular expression
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            var validEmail = emailRegex.test(email);
+
+            if (!validEmail) {
+                // Display error message for invalid email format
+                document.getElementById("emailError").innerHTML = "Invalid email format.";
+                return false; // Form submission will be blocked
+            } else {
+                // Simulate checking if the email is already registered (client-side)
+                var isEmailRegistered = checkIfEmailIsRegistered(email);
+
+                if (isEmailRegistered) {
+                    // Display "Account exists" message
+                    alert("Account already exists. Please log in.");
+                    return false; // Form submission will be blocked
+                } else {
+                    // Form submission will proceed if email is valid and not registered
+                    return true;
+                }
+            }
+        }
+
+        // Simulate checking if the email is already registered (client-side)
+        function checkIfEmailIsRegistered(email) {
+            // You can replace this with an actual AJAX request to your server to check if the email is registered.
+            // For demonstration purposes, we'll assume the email is not registered.
+            return false;
+        }
+    </script>
+</script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+</head>
+<style>
+body {
+background-color:Lightgrey;
+}
+h1 {
+font-size:2.5rem;
+text-align:center;
+}
+form {
+text-align:center;
+}
+textarea {
+text-area size:250px;
+}
+button {
+    position: relative;
+    width: 300px;
+    height: 40px;
+    transition: 1s;
+    margin-top: 70px;
+    color: #00ccff;
+    cursor: pointer;
+}
+</style>
+<body>
+<h1>Complaint Form</h1>
+<form>
+<label for="query">Select the type of complaint</label></br></br>
+<select id="query" name="query">
+<option value="package">Tour-package related</option>
+<option value="hotel">Hotel related related</option>
+<option value="transport">Transport related</option>
+<option value="payment">Payment related</option>
+<option value="expense">Expense related</option>
+<option value="emergency">Emergency-service related</option>
+</select>
+<p>Tell us your complaint. We will sort it out within 24 hours</p>
+<textarea name="complaint" required></textarea></br></br>
+<button type="submit">Submit</button>
+</form>
+</body>

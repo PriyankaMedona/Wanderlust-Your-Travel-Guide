@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Form</title>
+</head>
+<body>
+    <h1>Complaint Form</h1>
+    <form id="complaintForm" action="submit_complaint.php" method="post">
+        <label for="complaint">What is wrong?</label>
+        <textarea id="complaint" name="complaint" required></textarea>
+
+        <label for="queryType">Type of Query:</label>
+        <select id="queryType" name="queryType">
+            <option value="General">General</option>
+            <option value="Product">Product Issue</option>
+            <option value="Service">Service Issue</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Complaint submitted successfully. A confirmation email has been sent to your address.');
+                    this.reset();
+                } else {
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

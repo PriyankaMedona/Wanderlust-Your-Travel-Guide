@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Sharing</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <h1>Location Sharing</h1>
+    <div id="map" style="height: 400px;"></div>
+    <button id="getLocationButton">Get My Location</button>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        let userLatitude;
+        let userLongitude;
+        let map;
+
+        // Function to get the user's location
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    userLatitude = position.coords.latitude;
+                    userLongitude = position.coords.longitude;
+
+                    // Initialize the map and add a marker for the user's location
+                    map = L.map('map').setView([userLatitude, userLongitude], 15);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+                    L.marker([userLatitude, userLongitude]).addTo(map)
+                        .bindPopup('You are here')
+                        .openPopup();
+
+                    // Send the location to the server
+                    sendLocationToServer();
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to send the location to the server
+        function sendLocationToServer() {
+            const data = {
+                latitude: userLatitude,
+                longitude: userLongitude
+            };
+
+            fetch('/api/send-location', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Location data sent successfully.');
+                } else {
+                    console.error('Failed to send location data.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        document.getElementById('getLocationButton').addEventListener('click', getLocation);
+    </script>
+</body>
+</html>

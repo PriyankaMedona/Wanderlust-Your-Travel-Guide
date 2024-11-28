@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .search-box {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .places-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .place {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .place img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Travel Destinations</h1>
+        <div class="search-box">
+            <input type="text" placeholder="Search for places...">
+            <button>Search</button>
+        </div>
+    </header>
+    <div class="places-container">
+        <div class="place">
+            <img src="place1.jpg" alt="Place 1">
+            <h2>Place 1</h2>
+            <p>Description of Place 1</p>
+            <a href="#">Learn More</a>
+        </div>
+        <div class="place">
+            <img src="place2.jpg" alt="Place 2">
+            <h2>Place 2</h2>
+            <p>Description of Place 2</p>
+            <a href="#">Learn More</a>
+        </div>
+        <!-- Add more places here -->
+    </div>
+
+    <script>
+        // You can add JavaScript functionality here if needed
+    </script>
+</body>
+</html>

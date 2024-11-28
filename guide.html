@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <title>Guide Booking</title>
+</head>
+<style>
+        .container {
+            max-width: 1200px;
+            padding: 100px;
+            background-color:grey;
+            
+        }
+        .pic {
+              max-width: 200px;
+              //padding: 100px;
+            //margin: 0 auto;
+              float: right; 
+              margin-left: 20px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  height:50px;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 35px;
+  margin: 0px ;
+  }
+* {
+  box-sizing: border-box;
+}
+.box {
+  //position: relative;
+  width: 900px;
+  height: 400px;
+  //margin: 40px 0px 50px 400px;
+  background-color: white;
+  
+}
+
+ 
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+button {
+    position: relative;
+    width: 400px;
+    height: 60px;
+    transition: 1s;
+    margin-top: 70px;
+    color: red;
+    font-weight:bold;
+    cursor: pointer;
+}
+</style>
+<body>
+
+<div class="box">
+<div class="row">
+<div class="column">
+<p style="font-size:50px;font-weight:bold;">Get your Guide</p>
+<p style="text-align:center;font-size:25px;float:right;"> Book at a single click !!</p>
+<button>&#11088&#11088&#11088Explore top guides&#11088&#11088&#11088</button>
+</div>
+<div class="column">
+<img  src="guide.jpg"  style="float: left; margin-left: 50px"; width="500" height="400"></img></div>
+ <form class="example" action="/action_page.php">
+  <input type="text" placeholder="Search.." name="search" style="width:300px;height:30px;margin-left:350px;margin-top:70px;">
+  <button type="submit" style="width:50px;height:30px;"><img src="sch1.jpg" ></img></button>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>
